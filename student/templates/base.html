@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Website{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Company Logo">
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'student_list' %}">Students</a></li>
+                <li><a href="{% url 'course_list' %}">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <img src="{% static 'images/photo_2024-07-11_04-00-45.jpg' %}" alt="Image 1">
+        <img src="{% static 'images/photo_2024-07-11_04-00-45.jpg' %}" alt="Image 2">
+    </div>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
